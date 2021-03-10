@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1pLeKCwZZMrjgxndGK0bGxLH1Yt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="QuanChem" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="" />
+      <created>1614966732187</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614966732187</updated>
+      <workItem from="1614966741844" duration="2805000" />
+      <workItem from="1614975417597" duration="557000" />
+      <workItem from="1614993327508" duration="340000" />
+      <workItem from="1615135451838" duration="366000" />
+      <workItem from="1615381454862" duration="8123000" />
+      <workItem from="1615401036836" duration="4103000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="440" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614967233979">
+      <screen x="0" y="25" width="1920" height="970" />
+    </state>
+    <state x="440" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.970/-1920.25.1920.1055@0.25.1920.970" timestamp="1614967233979" />
+    <state x="1037" y="225" key="FileChooserDialogImpl" timestamp="1614966902658">
+      <screen x="0" y="25" width="1920" height="970" />
+    </state>
+    <state x="1037" y="225" key="FileChooserDialogImpl/0.25.1920.970/-1920.25.1920.1055@0.25.1920.970" timestamp="1614966902658" />
+    <state x="469" y="138" key="SettingsEditor" timestamp="1614966944682">
+      <screen x="0" y="25" width="1920" height="970" />
+    </state>
+    <state x="469" y="138" key="SettingsEditor/0.25.1920.970/-1920.25.1920.1055@0.25.1920.970" timestamp="1614966944682" />
+    <state x="639" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1615401037553">
+      <screen x="0" y="25" width="1920" height="967" />
+    </state>
+    <state x="639" y="330" key="com.intellij.ide.util.TipDialog/0.25.1920.967/-1920.25.1920.1055@0.25.1920.967" timestamp="1615401037553" />
+    <state x="639" y="331" key="com.intellij.ide.util.TipDialog/0.25.1920.970/-1920.25.1920.1055@0.25.1920.970" timestamp="1614966767947" />
+  </component>
+</project>
