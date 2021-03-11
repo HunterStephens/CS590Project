@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="" />
+    <list default="true" id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/E_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/E_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1pLeKCwZZMrjgxndGK0bGxLH1Yt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -15,6 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -71,6 +81,8 @@
       <workItem from="1615135451838" duration="366000" />
       <workItem from="1615381454862" duration="8123000" />
       <workItem from="1615401036836" duration="4103000" />
+      <workItem from="1615408045607" duration="7473000" />
+      <workItem from="1615490392271" duration="2802000" />
     </task>
     <servers />
   </component>
@@ -90,10 +102,10 @@
       <screen x="0" y="25" width="1920" height="970" />
     </state>
     <state x="469" y="138" key="SettingsEditor/0.25.1920.970/-1920.25.1920.1055@0.25.1920.970" timestamp="1614966944682" />
-    <state x="639" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1615401037553">
+    <state x="639" y="330" key="com.intellij.ide.util.TipDialog" timestamp="1615490394684">
       <screen x="0" y="25" width="1920" height="967" />
     </state>
-    <state x="639" y="330" key="com.intellij.ide.util.TipDialog/0.25.1920.967/-1920.25.1920.1055@0.25.1920.967" timestamp="1615401037553" />
+    <state x="639" y="330" key="com.intellij.ide.util.TipDialog/0.25.1920.967/-1920.25.1920.1055@0.25.1920.967" timestamp="1615490394684" />
     <state x="639" y="331" key="com.intellij.ide.util.TipDialog/0.25.1920.970/-1920.25.1920.1055@0.25.1920.970" timestamp="1614966767947" />
   </component>
 </project>

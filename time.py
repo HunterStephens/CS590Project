@@ -1,7 +1,7 @@
 import numpy as np
 import psi4
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
+import time
 
 
 def Rx(theta):
@@ -183,33 +183,24 @@ acid.getBase("./data/cysteine/cys_base.xyz")
 acid.getSideChain("./data/cysteine/cys_res.xyz")
 acid.center()
 
+timesHF = np.zeros(10)
+for i in range(10):
+    start = time.time()
+    acid.HF_energy()
+    end = time.time()
+    timesHF[i] = end-start
 
-# --- perform baseline energy calcs ---
+HF_mean = np.mean(timesHF)
 
-x1 = np.linspace(-15.0, 15.0, 30)
-x2 = np.linspace(-15.0, 15.0, 30)
-E = np.zeros((30, 30))
+times = np.zeros(10)
+for i in range(10):
+    start = time.time()
+    acid.DFT_energy()
+    end = time.time()
+    times[i] = end-start
 
-# --- Hartree Fock ---
-'''
-for i in range(30):
-    for j in range(30):
-        flex = acid.flexChain(x1[i], x2[j], 0.0)
-        E[i,j] = flex.HF_energy()
+DFT_mean = np.mean(times)
 
-np.save("./data/cysteine/HF_E.npy", E)
-'''
-
-# --- DFT ---
-for i in range(30):
-    for j in range(30):
-        flex = acid.flexChain(x1[i], x2[j], 0.0)
-        E[i,j] = flex.DFT_energy()
-
-np.save("./data/cysteine/DFT_E.npy", E)
-
-
-
-
-
+print(HF_mean)
+print(DFT_mean)
 
