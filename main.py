@@ -312,67 +312,61 @@ def assemble_peptide(sequence):
     return peptide
 
 def rotate_residue(mol, res_id, bond_number, angle):
-    # --- retrieve residue ---
-    residue = mol[mol.res_id == res_id]
-    bond_list = residue.bonds
+
 
     # --- Identify rotatable bonds ---
-    rotatable_bonds = struc.find_rotatable_bonds(residue.bonds)
+    rotatable_bonds = struc.find_rotatable_bonds(mol.bonds)
 
-    # --- Do not rotate about backbone bonds ---
+    # --- do not rotate about backbone bonds ---
     for atom_name in BACKBONE:
-        index = np.where(residue.atom_name == atom_name)[0][0]
+        index = np.where(mol.atom_name == atom_name)[0][0]
         rotatable_bonds.remove_bonds_to(index)
 
-    # --- VdW radii of each atom, required for the next step ---
-    vdw_radii = np.zeros(residue.array_length())
+    # --- remove bonds not at wanted residue ---
+    for res in np.unique(mol.res_id):
+        if res != res_id:
+            indices = np.where(mol.res_id == res)[0]
+            for i in range(len(indices)):
+                index = indices[i]- i
+                rotatable_bonds.remove_bonds_to(index)
 
-    for i, element in enumerate(residue.element):
-        vdw_radii[i] = info.vdw_radius_single(element)
-    # --- The Minimum required distance between two atoms is mean of their VdW radii ---
-    vdw_radii_mean = (vdw_radii[:, np.newaxis] + vdw_radii[np.newaxis, :]) / 2
 
-    rotamer_coord = np.zeros((1, residue.array_length(), 3))
+    # --- init coordinates for new model ---
+    coord = mol.coord.copy()
 
-    # Coordinates for the current rotamer model
-    coord = residue.coord.copy()
-    atom_i, atom_j, _ = rotatable_bonds.as_array()[0]
-    # The bond axis
+    # --- get bond axis ---
+    atom_i, atom_j,_ = rotatable_bonds.as_array()[bond_number]
     axis = coord[atom_j] - coord[atom_i]
-    # Position of one of the involved atoms
+
+    # --- get support atom ---
     support = coord[atom_i]
 
-    # Only atoms at one side of the rotatable bond should be moved
-    # So the original Bondist is taken...
-    bond_list_without_axis = residue.bonds.copy()
-    # ...the rotatable bond is removed...
+    # --- need to get atoms only on one side of the bond ---
+    bond_list_without_axis = mol.bonds.copy()
     bond_list_without_axis.remove_bond(atom_i, atom_j)
-    # ...and these atoms are found by identifying the atoms that
-    # are still connected to one of the two atoms involved
-    rotated_atom_indices = struc.find_connected(
-        bond_list_without_axis, root=atom_i
-    )
+    rotated_atom_indices = struc.find_connected(bond_list_without_axis, root=atom_j)
 
-    # Rotate
+    # --- rotate atoms ---
     coord[rotated_atom_indices] = struc.rotate_about_axis(
         coord[rotated_atom_indices], axis, angle, support
     )
 
-    # replaced atom coords in larger molecule
-    for i in rotated_atom_indices:
-        a_i = residue[i]
-        # --- find in larger molecule ---
-        for j, atom_k in enumerate(mol):
-            if atom_k.res_id == res_id and atom_k.atom_name == a_i.atom_name:
-                #mol[j].translate(coord[i]-mol[j].coord)
-                print(mol[j].coord)
-                mol[j].coord += 10
-                print(mol[j].coord)
+    atom_list = []
+    for i, atom_i in enumerate(mol):
+        atom_new = struc.Atom(
+            coord[i], atom_name=atom_i.atom_name, element=atom_i.element
+        )
+        atom_list.append(atom_new)
+    new_mol = struc.array(atom_list)
+    new_mol.res_id[:] = mol.res_id
+    new_mol.res_name[:] = mol.res_name
+    new_mol.bonds = mol.bonds.copy()
 
-    return mol
+    return new_mol
 
 
-def plot(mol):
+
+def plot(mol, save_as="null", show=True):
 
     colors = np.zeros((mol.array_length(), 3))
     colors[mol.element == "H"] = (0.8, 0.8, 0.8)  # gray
@@ -383,39 +377,26 @@ def plot(mol):
     fig = plt.figure(figsize=(8.0, 8.0))
     ax = fig.add_subplot(1, 1, 1, projection="3d")
     graphics.plot_atoms(ax, mol, colors, line_width=3, zoom=1.5)
+    ax.view_init(elev=165, azim=115)
     fig.tight_layout()
-    plt.show()
+    if save_as != "null":
+        plt.savefig(save_as)
+        plt.close()
+
+    if show:
+     plt.show()
 
 
-def plot(mol,mol2):
 
-
-    fig = plt.figure(figsize=(16.0, 8.0))
-    ax = fig.add_subplot(1, 2, 1, projection="3d")
-    ax.view_init(elev=0,azim=0)
-    colors = np.zeros((mol.array_length(), 3))
-    colors[mol.element == "H"] = (0.8, 0.8, 0.8)  # gray
-    colors[mol.element == "C"] = (0.0, 0.8, 0.0)  # green
-    colors[mol.element == "N"] = (0.0, 0.0, 0.8)  # blue
-    colors[mol.element == "O"] = (0.8, 0.0, 0.0)  # red
-    graphics.plot_atoms(ax, mol, colors, line_width=3, zoom=1.5)
-
-    ax2 = fig.add_subplot(1, 2, 2, projection="3d")
-    ax2.view_init(elev=0, azim=0)
-    colors2 = np.zeros((mol2.array_length(), 3))
-    colors2[mol2.element == "H"] = (0.8, 0.8, 0.8)  # gray
-    colors2[mol2.element == "C"] = (0.0, 0.8, 0.0)  # green
-    colors2[mol2.element == "N"] = (0.0, 0.0, 0.8)  # blue
-    colors2[mol2.element == "O"] = (0.8, 0.0, 0.0)  # red
-    graphics.plot_atoms(ax2, mol2, colors2, line_width=3, zoom=1.5)
-    fig.tight_layout()
-    plt.show()
 
 # --- lets try and rotate/replace a residue in the peptide ---
 sequence = seq.ProteinSequence("TIT")
 mol = assemble_peptide(sequence)
-mol2 = rotate_residue(mol, 2, 0, 45)
-plot(mol, mol2)
+
+thetas=np.linspace(-30, 30, 30)
+for i,theta in enumerate(thetas):
+    mol_new = rotate_residue(mol, 2, 0, theta*np.pi/180)
+    plot(mol_new, save_as=f"./plots/res_flex/{i}.png", show=False)
 
 
 
