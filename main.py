@@ -1,4 +1,3 @@
-from jinja2 import Template
 import numpy as np
 import matplotlib.pyplot as plt
 import biotite.structure as struc
@@ -7,11 +6,7 @@ from numpy.linalg import norm
 import biotite.sequence as seq
 import biotite.structure.info as info
 import biotite.structure.graphics as graphics
-
-tmpl = Template("""
-{{CH}} {{SP}}
-{{XYZ}}
-""")
+import pandas as pd
 
 # 'CA' is not in backbone,
 # as we want to include the rotation between 'CA' and 'CB'
@@ -26,12 +21,29 @@ N_H_LENGTH        = 1.01
 O_H_LENGTH        = 0.97
 
 def mkpsi4(mol):
+    # --- read dictionary for spin multiplicty ---
+    df = pd.read_csv("./data/elec_config.csv")
+    df = df[df.columns[2:]]
+    for col in df.columns[1:]:
+        df.loc[df[col] == '-', col] = 0
+
+    names = df[df.columns[0]].tolist()
+    config = df[df.columns[1:]].to_numpy().astype(int)
+    config = np.sum(config, axis=1)
+    config_dictionary = {i: j for i, j in zip(names, config)}
+    S  = 0
+    for atom in mol:
+        ne = config_dictionary[atom.element]
+        if ne % 2 != 0:
+            S = S + 1
+
 
     charge = np.sum(mol.charge)
-    output = tmpl.render(CH=charge,
-                         SP=mol.spin,
-                         XYZ=xyz)
-    return output
+    out = f"{charge} {S}\n"
+    for atom in mol:
+        out = out + f"{atom.element} {atom.coord[0]} {atom.coord[1]} {atom.coord[2]}\n"
+
+    return out
 
 def calculate_atom_coord_by_z_rotation(coord1, coord2, angle, bond_length):
     rot_axis = [0, 0, 1]
@@ -307,8 +319,9 @@ def flexGif(residue):
         plot(mol_new, save_as=f"./plots/res_flex/{i+j}.png", show=False)
 
 mol = info.residue("CYS")
-for atom in mol:
-    print(atom.atom_id)
+print(mkpsi4(mol))
+
+
 
 
 
