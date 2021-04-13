@@ -2,33 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/QuanChem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QuanChem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/flex.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/0.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/101.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/102.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/103.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/104.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/105.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/106.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/107.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/108.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/109.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/110.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/111.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/112.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/113.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/114.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/115.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/116.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/117.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/118.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/119.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/12.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/12.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/13.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/13.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/14.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/14.png" afterDir="false" />
@@ -49,83 +30,12 @@
       <change beforePath="$PROJECT_DIR$/plots/res_flex/28.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/28.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/29.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/29.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/39.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/44.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/46.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/49.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/51.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/52.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/53.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/54.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/55.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/56.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/58.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/59.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/60.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/61.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/62.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/63.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/65.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/66.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/67.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/68.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/69.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/70.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/71.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/72.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/73.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/74.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/75.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/76.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/77.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/78.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/79.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/80.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/81.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/82.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/83.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/84.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/85.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/86.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/87.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/88.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/89.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/plots/res_flex/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/plots/res_flex/9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/90.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/91.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/92.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/93.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/94.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/95.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/97.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/98.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/99.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/plots/res_flex/res_flex.gif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +49,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -193,6 +102,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -220,11 +130,12 @@
       <workItem from="1617719581752" duration="24000" />
       <workItem from="1617797363255" duration="3112000" />
       <workItem from="1617914546710" duration="871000" />
+      <workItem from="1618337123451" duration="660000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1614967233979">

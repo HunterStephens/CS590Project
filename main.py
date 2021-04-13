@@ -1,4 +1,3 @@
-from openbabel import pybel
 from jinja2 import Template
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,96 +25,13 @@ C_O_DOUBLE_LENGTH = 1.23
 N_H_LENGTH        = 1.01
 O_H_LENGTH        = 0.97
 
-def pdb2psi4mol(fpath):
+def mkpsi4(mol):
 
-    mol = next(pybel.readfile("pdb", fpath))
-    xyz = mol.write('xyz').split("\n")[2:]
-    xyz = "\n".join(xyz)
-    output = tmpl.render(CH=mol.charge,
+    charge = np.sum(mol.charge)
+    output = tmpl.render(CH=charge,
                          SP=mol.spin,
                          XYZ=xyz)
     return output
-
-def rotamer(residue, angle):
-
-    bond_list = residue.bonds
-
-    # --- Identify rotatable bonds ---
-    rotatable_bonds = struc.find_rotatable_bonds(residue.bonds)
-
-    # --- Do not rotate about backbone bonds ---
-    for atom_name in BACKBONE:
-        index = np.where(residue.atom_name == atom_name)[0][0]
-        rotatable_bonds.remove_bonds_to(index)
-
-    # --- VdW radii of each atom, required for the next step ---
-    vdw_radii = np.zeros(residue.array_length())
-
-    for i, element in enumerate(residue.element):
-        vdw_radii[i] = info.vdw_radius_single(element)
-    # --- The Minimum required distance between two atoms is mean of their VdW radii ---
-    vdw_radii_mean = (vdw_radii[:, np.newaxis] + vdw_radii[np.newaxis, :]) / 2
-
-    rotamer_coord = np.zeros((1, residue.array_length(), 3))
-
-    # Coordinates for the current rotamer model
-    coord = residue.coord.copy()
-    for atom_i, atom_j, _ in rotatable_bonds.as_array():
-        # The bond axis
-        axis = coord[atom_j] - coord[atom_i]
-        # Position of one of the involved atoms
-        support = coord[atom_i]
-
-        # Only atoms at one side of the rotatable bond should be moved
-        # So the original Bondist is taken...
-        bond_list_without_axis = residue.bonds.copy()
-        # ...the rotatable bond is removed...
-        bond_list_without_axis.remove_bond(atom_i, atom_j)
-        # ...and these atoms are found by identifying the atoms that
-        # are still connected to one of the two atoms involved
-        rotated_atom_indices = struc.find_connected(
-            bond_list_without_axis, root=atom_i
-        )
-
-        # Rotate
-        coord[rotated_atom_indices] = struc.rotate_about_axis(
-            coord[rotated_atom_indices], axis, angle, support
-        )
-        accepted = False
-        while not accepted:
-            # Rotate
-            coord[rotated_atom_indices] = struc.rotate_about_axis(
-                coord[rotated_atom_indices], axis, angle, support
-            )
-
-            # Check if the atoms clash with each other:
-            # The distance between each pair of atoms must be larger
-            # than the sum of their VdW radii, if they are not bonded to
-            # each other
-            accepted = True
-            distances = struc.distance(
-                coord[:, np.newaxis], coord[np.newaxis, :]
-            )
-            clashed = distances < vdw_radii_mean
-            for clash_atom1, clash_atom2 in zip(*np.where(clashed)):
-                if clash_atom1 == clash_atom2:
-                    # Ignore distance of an atom to itself
-                    continue
-                if (clash_atom1, clash_atom2) not in bond_list:
-                    # Nonbonded atoms clash
-                    # -> structure is not accepted
-                    accepted = False
-
-
-    rotamer_coord[0] = coord
-    rotamers = struc.from_template(residue, rotamer_coord)
-
-    ### Superimpose backbone onto first model for better visualization ###
-    rotamers, _ = struc.superimpose(
-        rotamers[0], rotamers, atom_mask=struc.filter_backbone(rotamers)
-    )
-
-    return rotamers[0]
 
 def calculate_atom_coord_by_z_rotation(coord1, coord2, angle, bond_length):
     rot_axis = [0, 0, 1]
@@ -311,7 +227,7 @@ def assemble_peptide(sequence):
 
     return peptide
 
-def rotate_residue(mol, res_id, bond_number, angle):
+def rotate_residue(mol, bond_number, angle):
 
 
     # --- Identify rotatable bonds ---
@@ -321,14 +237,6 @@ def rotate_residue(mol, res_id, bond_number, angle):
     for atom_name in BACKBONE:
         index = np.where(mol.atom_name == atom_name)[0][0]
         rotatable_bonds.remove_bonds_to(index)
-
-    # --- remove bonds not at wanted residue ---
-    for res in np.unique(mol.res_id):
-        if res != res_id:
-            indices = np.where(mol.res_id == res)[0]
-            for i in range(len(indices)):
-                index = indices[i]- i
-                rotatable_bonds.remove_bonds_to(index)
 
 
     # --- init coordinates for new model ---
@@ -364,8 +272,6 @@ def rotate_residue(mol, res_id, bond_number, angle):
 
     return new_mol
 
-
-
 def plot(mol, save_as="null", show=True):
 
     colors = np.zeros((mol.array_length(), 3))
@@ -386,18 +292,23 @@ def plot(mol, save_as="null", show=True):
     if show:
      plt.show()
 
+def flexGif(residue):
+    mol = info.residue(residue)
+    thetas = np.linspace(-30, 30, 60)
+    thetas = np.append(thetas, np.linspace(30, 0, 30))
+    for i, theta in enumerate(thetas):
+        mol_new = rotate_residue(mol, 0, theta*np.pi/180)
+        plot(mol_new, save_as=f"./plots/res_flex/{i}.png", show=False)
 
+    thetas = np.linspace(0, 30, 60)
+    thetas = np.append(thetas, np.linspace(30, -30, 30))
+    for j, theta in enumerate(thetas):
+        mol_new = rotate_residue(mol, 1, theta * np.pi / 180)
+        plot(mol_new, save_as=f"./plots/res_flex/{i+j}.png", show=False)
 
-
-# --- lets try and rotate/replace a residue in the peptide ---
-sequence = seq.ProteinSequence("TIT")
-mol = assemble_peptide(sequence)
-
-thetas=np.linspace(-30, 30, 30)
-for i,theta in enumerate(thetas):
-    mol_new = rotate_residue(mol, 2, 0, theta*np.pi/180)
-    plot(mol_new, save_as=f"./plots/res_flex/{i}.png", show=False)
-
+mol = info.residue("CYS")
+for atom in mol:
+    print(atom.atom_id)
 
 
 
