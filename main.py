@@ -31,15 +31,13 @@ def mkpsi4(mol):
     config = df[df.columns[1:]].to_numpy().astype(int)
     config = np.sum(config, axis=1)
     config_dictionary = {i: j for i, j in zip(names, config)}
-    S  = 0
+    s = 0
     for atom in mol:
         ne = config_dictionary[atom.element]
         if ne % 2 != 0:
-            S = S + 1
+            s = s + 1
 
-
-    charge = np.sum(mol.charge)
-    out = f"{charge} {S}\n"
+    out = f"{0} {s}\n"
     for atom in mol:
         out = out + f"{atom.element} {atom.coord[0]} {atom.coord[1]} {atom.coord[2]}\n"
 
@@ -318,8 +316,23 @@ def flexGif(residue):
         mol_new = rotate_residue(mol, 1, theta * np.pi / 180)
         plot(mol_new, save_as=f"./plots/res_flex/{i+j}.png", show=False)
 
-mol = info.residue("CYS")
-print(mkpsi4(mol))
+# --- get base residue ---
+residue = info.residue("CYS")
+# --- calculate energy surfaces ---
+chi1 = np.linspace(-9, 9, 19)*np.pi/180
+chi2 = np.linspace(-9, 9, 19)*np.pi/180
+
+for i in range(18):
+    for j in range(18):
+        res1 = rotate_residue(residue, 0, chi1[i])
+        res2 = rotate_residue(res1, 1, chi2[j])
+        f = open(f"./data/psi4files/cys_{chi1[i]*180/np.pi}_{chi2[j]*180/np.pi}.txt","w")
+        f.write(mkpsi4(res2))
+        f.close()
+
+
+
+
 
 
 
