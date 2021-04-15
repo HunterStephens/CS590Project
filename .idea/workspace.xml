@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_rotamer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/time.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/timer.dat" beforeDir="false" />
-    </list>
+    <list default="true" id="0975b80d-f811-4d25-949b-b9ba340f0017" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +97,8 @@
       <workItem from="1617914546710" duration="871000" />
       <workItem from="1618337123451" duration="1138000" />
       <workItem from="1618338392378" duration="2142000" />
-      <workItem from="1618346051254" duration="3109000" />
+      <workItem from="1618346051254" duration="3200000" />
+      <workItem from="1618427797868" duration="7202000" />
     </task>
     <servers />
   </component>
