@@ -319,25 +319,35 @@ def flexGif(residue):
 
 # --- get base residue ---
 residue = info.residue("CYS")
+
+'''
 # --- calculate energy surfaces ---
-chi1 = np.linspace(-30, 0, 30)*np.pi/180
-chi2 = np.linspace(-30, 0, 30)*np.pi/180
-np.save("chi1.npy", np.linspace(-30, 0, 30))
-np.save("chi2.npy", np.linspace(-30, 0, 30))
+chi1 = np.linspace(-30, 0, 31)
+chi2 = np.linspace(-30, 0, 31)
+np.save("chi1.npy", chi1)
+np.save("chi2.npy", chi2)
 
 
 count = 0
 for i in range(len(chi1)):
     for j in range(len(chi2)):
-        res1 = rotate_residue(residue, 0, chi1[i])
-        res2 = rotate_residue(res1, 1, chi2[j])
+        res1 = rotate_residue(residue, 0, chi1[i]*np.pi/180)
+        res2 = rotate_residue(res1, 1, chi2[j]*np.pi/180)
         plot(res2, save_as=f"./plots/E_conf_plots/{count}.png", show=False)
         count = count + 1
-        f = open(f"./data/psi4files/cys_{chi1[i]*180/np.pi}_{chi2[j]*180/np.pi}.txt","w")
+        f = open(f"./data/psi4files/cys_{chi1[i]}_{chi2[j]}.txt","w")
         f.write(mkpsi4(res2))
         f.close()
 
+'''
 
+chi = np.linspace(0, 359, 360)
+np.save("chi.npy", chi)
+for i in range(len(chi)):
+    res = rotate_residue(residue, 0, chi[i]*np.pi/180)
+    f = open(f"./data/psi4files/cys_{chi[i]}.txt", "w")
+    f.write(mkpsi4(res))
+    f.close()
 
 
 
