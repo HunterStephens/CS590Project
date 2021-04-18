@@ -7,6 +7,7 @@ import biotite.sequence as seq
 import biotite.structure.info as info
 import biotite.structure.graphics as graphics
 import pandas as pd
+import os
 
 # 'CA' is not in backbone,
 # as we want to include the rotation between 'CA' and 'CB'
@@ -32,10 +33,10 @@ def mkpsi4(mol):
     config = np.sum(config, axis=1)
     config_dictionary = {i: j for i, j in zip(names, config)}
     s = 0
-    for atom in mol:
-        ne = config_dictionary[atom.element]
-        if ne % 2 != 0:
-            s = s + 1
+    #for atom in mol:
+    #    ne = config_dictionary[atom.element]
+    #    if ne % 2 != 0:
+    #        s = s + 1
 
     #out = f"{0} {s}\n"
     out = ""
@@ -317,37 +318,31 @@ def flexGif(residue):
         mol_new = rotate_residue(mol, 1, theta * np.pi / 180)
         plot(mol_new, save_as=f"./plots/res_flex/{i+j}.png", show=False)
 
-# --- get base residue ---
-residue = info.residue("CYS")
 
-'''
-# --- calculate energy surfaces ---
-chi1 = np.linspace(-30, 0, 31)
-chi2 = np.linspace(-30, 0, 31)
-np.save("chi1.npy", chi1)
-np.save("chi2.npy", chi2)
-
-
-count = 0
-for i in range(len(chi1)):
-    for j in range(len(chi2)):
-        res1 = rotate_residue(residue, 0, chi1[i]*np.pi/180)
-        res2 = rotate_residue(res1, 1, chi2[j]*np.pi/180)
-        plot(res2, save_as=f"./plots/E_conf_plots/{count}.png", show=False)
-        count = count + 1
-        f = open(f"./data/psi4files/cys_{chi1[i]}_{chi2[j]}.txt","w")
-        f.write(mkpsi4(res2))
-        f.close()
-
-'''
-
+acids = ['ala','arg','asn','asp','cys','gln','glu','his',\
+         'leu','lys','met','phe','pyl','ser','sec','thr','trp','tyr',\
+         'val']
 chi = np.linspace(0, 359, 360)
 np.save("chi.npy", chi)
-for i in range(len(chi)):
-    res = rotate_residue(residue, 0, chi[i]*np.pi/180)
-    f = open(f"./data/psi4files/cys_{chi[i]}.txt", "w")
-    f.write(mkpsi4(res))
-    f.close()
+
+for acid in acids:
+    # --- get base residue ---
+    residue = info.residue(acid.upper())
+
+    # --- create directory ---
+    pth = f"./data/psi4files/{acid}"
+    if not os.path.exists(pth):
+        os.makedirs(pth)
+
+    for i in range(len(chi)):
+        res = rotate_residue(residue, 0, chi[i]*np.pi/180)
+        f = open(f"{pth}/{acid}_{chi[i]}.txt", "w")
+        f.write(mkpsi4(res))
+        f.close()
+
+
+
+
 
 
 
